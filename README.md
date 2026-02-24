@@ -1,9 +1,9 @@
 pyGIMLi Workshop at NSG26
 =========================
 
-**Event**: EAGE Near Surface Geoscience Conference and Exhibition
-**Location**: Thessaloniki, Greece
-**Date**: Sunday, September 20, 2026
+**Event**: EAGE Near Surface Geoscience Conference and Exhibition \
+**Location**: Thessaloniki, Greece \
+**Date**: Sunday, September 20, 2026 \
 **Instructors**: Nino Menzel, Alexander Jaron, Florian Wagner (*RWTH Aachen University*)
 
 ## Combining near-surface geophysical data with the open-source library pyGIMLi 
