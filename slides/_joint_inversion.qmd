@@ -14,6 +14,41 @@
 :::
 
 
+## Joint inversion of methods working in same parameter space
+
+
+-   If two methods are sensitive to the same physical property (e.g. electrical resistivity $\rho$ by using ERT and a electromagnetic method) we can use the same model parameter space for both methods and perform a classical **joint inversion**.
+
+-  In the following exapmle we will use vertical electrical sounding (VES) and EM data to jointly invert for the electrical resistivity distribution of the subsurface in a 1D model.
+
+![](images/joint_inversion.png){fig-align="center"}
+
+
+
+## Joint inversion of methods working in different parameter spaces
+### Petrophysically coupled joint inversion
+
+
+-   If two methods are sensitive to different physical properties (e.g. electrical resistivity $\rho$ by using ERT and acoustic velocity $v$ by using SRT) we can use different types of joint inversion algorithms to link the two model parameter spaces.
+
+- One possible approach is to couple both methods by using a petrophysical relationship between the two physical properties. This is called **petrophysically coupled joint inversion**. For example the water saturation can be used to link the electrical resistivity and acoustic velocity of the subsurface.
+
+## Joint inversion of methods working in different parameter spaces
+
+- Finally, we invert again in the same parameter space.
+
+<br>
+
+![](images/plot_3_petro_joint_inv_all.png){fig-align="center"}
+
+
+## Joint inversion of methods working in different parameter spaces
+### Structurally coupled joint inversion
+
+- If a petrophysical relationship is not known or cannot be applied, we can use a **structurally coupled joint inversion**. In this case, we assume that the two physical properties are structurally related, i.e. they have similar spatial distributions. This can be achieved by using a **cross-gradient constraint** in the inversion: 
+
+
+$$\Phi_{cg} = \int \left| \nabla \mathbf{\rho}(i) \times \nabla \mathbf{v}(i) \right|^{2}$$
 
 ## {{< fa flag-checkered >}} Takeaway messages:
 :::{.incremental}
