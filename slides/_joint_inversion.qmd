@@ -1,6 +1,3 @@
-# Joint inversion of ERT and SRT data 
-{{< fa forward >}} The more, the merrier?
-
 ## {{< fa bullseye >}} Goals of this part of the workshop 
 
 ::: {.incremental}

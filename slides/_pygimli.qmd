@@ -1,13 +1,3 @@
-# introducing pyGIMLi 
-
-is rather a box full of tools and not a specific tool
-
-aims at making:
-
-- easy things easy
-- hard things possible
-- everything transparent and reproducible
-
 ## {{< fa toolbox >}} py**GIMLi** is a versatile open-source toolbox with:
 ::: {.columns}
 ::: {.column width="65%" .incremental}
@@ -27,6 +17,56 @@ process-based inversions** with **region-specific regularization**
 :::
 :::
 :::
+
+## Basic inversion framework {.smaller}
+:::: {.columns}
+::: {.column}
+
+The default inversion framework is based on the generalized Gauss-Newton method and is compatible with any given forward operator and thus applicable to various physical problems.
+
+$$ \| \mathbf{W}_\text{d} (\mathbf{F}(\mathbf{m})-\mathbf{d}) \|^2_2 + \lambda \| \mathbf{W}_\text{m} (\mathbf{m}-\mathbf{m_0}) \|^2_2 \rightarrow\min $$
+
+::: {.callout-note}
+The inversion is physics-independent and very flexible in terms of adding prior information, regularization and integrating different geophysical methods.
+:::
+
+Website and documentation: <https://pygimli.org>
+:::
+
+::: {.column}
+![@Ruecker2017](images/inversion_framework.svg)
+:::
+
+::::
+
+## Software design {.smaller}
+:::: {.columns}
+::: {.column width="60%"}
+
+pyGIMLi is organized in three different abstraction levels:
+
+::: {.panel-tabset}
+## Application level
+
+In the application level, ready-to-use method managers and frameworks are provided. Method managers (`pygimli.manager`) hold all relevant functionality related to a geophysical method. A method manager can be initialized with a data set and used to analyze and visualize this data set, create a corresponding mesh, and carry out an inversion. Various method managers are available in `pygimli.physics`. Frameworks (`pygimli.frameworks`) are generalized abstractions of standard and advanced inversions tasks such as time-lapse or joint inversion for example. Since frameworks communicate through a unified interface, they are method independent.
+
+## Modelling level
+
+In the modelling level, users can set up customized forward operators that map discretized parameter distributions to a data vector. Once defined, it is straightforward to set up a corresponding inversion workflow or combine the forward operator with existing ones.
+
+## Equation level
+
+The underlying equation level allows to directly access the finite element (`pygimli.solver.solveFiniteElements()`) and finite volume (`pygimli.solver.solveFiniteVolume()`) solvers to solve various partial differential equations on unstructured meshes, i.e. to approach various physical problems with possibly complex 2D and 3D geometries.
+
+:::
+
+:::
+
+::: {.column width="40%"}
+![@Ruecker2017](images/pg_design.svg)
+:::
+
+::::
 
 ## {{< fa backward >}} Existing tutorials
 
@@ -94,7 +134,7 @@ https://github.com/gimli-org/gimli/releases
 :::
 :::
 
-# The code base -- `ERT` module
+## The code base -- `ERT` module
 
 :::: {.columns}
 ::: {.column width="70%"}
@@ -135,7 +175,7 @@ https://github.com/gimli-org/gimli/releases
 {{< fa code >}} Make whole processing chain transparent and reproducible
 
 
-# The code base -- `traveltime` module
+## The code base -- `traveltime` module
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -164,7 +204,7 @@ https://github.com/gimli-org/gimli/releases
 ::::
 
 
-# The code base -- joint inversion frameworks
+## The code base -- joint inversion frameworks
 
 :::: {.columns}
 ::: {.column width="50%"}

@@ -1,6 +1,3 @@
-# pyGIMLi's ERT and traveltime managers
-{{< fa forward >}} Let's start individual!
-
 ## {{< fa bullseye >}} Goals of this part of the workshop
 
 ::: {.incremental}

@@ -14,13 +14,17 @@ Near-surface geophysical methods are key tools in environmental and engineering 
 
 Time          | Session                                      | Lead
 ------------- | -------------------------------------------- | -------------
-09:00-10:30   | Introduction                                 | F. Wagner
+09:00-10:30   | [Introduction][s1]                           | F. Wagner
 10:30-11:00   | Break                                        |
-11:00-12:30   | Advanced Inversion                           | N. Menzel
+11:00-12:30   | [Advanced Inversion][s2]                     | N. Menzel
 12:30-13:30   | Lunch                                        |
-13:30-15:00   | Joint Inversion                              | A. Jaron
+13:30-15:00   | [Joint Inversion][s3]                        | A. Jaron
 15:00-15:30   | Break                                        |
 15:30-17:00   | Additional Topics & Assisted Data Processing |
+
+[s1]: https://gimli-org.github.io/nsg26/#/introduction
+[s2]: https://gimli-org.github.io/nsg26/#/advanced-inversion
+[s3]: https://gimli-org.github.io/nsg26/#/joint-inversion
 
 
 ### References

@@ -1,0 +1,17 @@
+
+## Geophysical monitoring of subsurface processes
+![@Binley2015](images/inversion.png)
+
+## Quantitative imaging and monitoring is challenging
+![](images/quantification_challenges.svg)
+
+## The evolution of geophysical imaging for subsurface characterization
+
+![](images/invA.svg){.absolute top=180 left=0 width=1200}
+![](images/invB.svg){.fragment .fade-in-then-out .absolute top=180 left=0 width=1200}
+![](images/invC.svg){.fragment .fade-in-then-out .absolute top=180 left=0 width=1200}
+![](images/invD.svg){.fragment .fade-in .absolute top=180 left=0 width=1200}
+
+[[@Wagner2021]]{.muted .absolute bottom=40 right=20 style="font-size: 0.6em;"}
+
+[--> model coupling is challenging and requires versatile open-source software]{.fragment .absolute bottom=80 left=20}
