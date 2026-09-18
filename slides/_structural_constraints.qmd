@@ -31,7 +31,26 @@
 -   Those information can be **easily integrated** into the mesh used for inversion 
 :::
 
+## Constraints from borehole data
+
+:::: {.columns}
+::: {.column width="50%"}
+-   Most commonly applied constraints: including one or multiple **1D point sources** of information
+
+-   Structural / geological information or geophysical data from well logging
+
+-   In most cases, borehole data give **sharp boundaries** between lithologies that can be utilized to **constrain the inversion**
+
+-   Goal: by including borehole data, the inversion also aims at **explaining the additional information within its error bounds**, leading to an oftenmost more refined model
+:::
+::: {.column width="50%"}
+![](images/DP_constraints_plus_ERT.png)
+:::
+::::
+
+
 ## Geostatistical regularization 
+
 
 -   **Alternative way to smoothness-constrained inversions** using a covariance matrix to quantify the correlation of model parameters in different cells
 
@@ -53,12 +72,12 @@ $${#eq-covar}
 
 -   Based on **geological or structural analysis**, an estimation of *i) vertical and horizontal correlation lengths*, *ii) the dip angle* and *iii) the strike direction* (in 3D) is included into the inversion
 
--   The resulting **covariance for a single model cell** looks as follows:
+-   The resulting **correlation for a single model cell** looks as follows:
 
 ![](images/geostat_operator.png){fig-align="center"}
 
 
-## Inversion with simple structural constraints
+## Inversion with two-dimensional structural constraints
 
 -   Structural information can not only be derived from geological or structural information, but also from **measurements using other geophysical methods**.
 
@@ -76,8 +95,9 @@ $${#eq-covar}
 - We **applied advanced regularization techniques** to our individual inversions
 
 - We **constrained the individual inversions** using 
-  * **geological borehole information**
-  * **GPR reflections**
+  * **structural information** on dip and geological layering
+  * **1D borehole data** 
+  * **2D GPR reflections**
 
 - We **evaluated and compared** the constrained models and quantified the effect of adding a-priori information
 ::: 
