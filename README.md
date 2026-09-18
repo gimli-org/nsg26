@@ -17,7 +17,7 @@ Time          | Session                                      | Lead
 09:00-10:30   | Introduction                                 | F. Wagner
 10:30-11:00   | Break                                        |
 11:00-12:30   | Advanced Inversion                           | N. Menzel
-12:30-13:15   | Lunch                                        |
+12:30-13:30   | Lunch                                        |
 13:30-15:00   | Joint Inversion                              | A. Jaron
 15:00-15:30   | Break                                        |
 15:30-17:00   | Additional Topics & Assisted Data Processing |
