@@ -45,10 +45,22 @@
 ## Joint inversion of methods working in different parameter spaces
 ### Structurally coupled joint inversion
 
-- If a petrophysical relationship is not known or cannot be applied, we can use a **structurally coupled joint inversion**. In this case, we assume that the two physical properties are structurally related, i.e. they have similar spatial distributions. This can be achieved by using a **cross-gradient constraint** in the inversion: 
+- If a petrophysical relationship is not known or cannot be applied, we can use a **structurally coupled joint inversion**. In this case, we assume that the two physical properties are structurally related, i.e. they have similar spatial distributions. This can be achieved by using a **cross-gradient constraint** in the inversion.
+
+- For this purpose, we define the cross-gradient function $\Phi_{cg}$ as the integral of the squared magnitude of the cross product of the gradients of the two physical properties:
 
 
 $$\Phi_{cg} = \int \left| \nabla \mathbf{\rho}(i) \times \nabla \mathbf{v}(i) \right|^{2}$$
+
+
+## Joint inversion of methods working in different parameter spaces
+### Structurally coupled joint inversion
+
+- The gradients of two models in different parameter spaces are parallel if the cross-gradient function $\Phi_{cg}$ is zero. In this case, the two models are structurally quite similar.
+
+<br> 
+
+![](images/joint_inversion_gradients.png){fig-align="center"}
 
 ## {{< fa flag-checkered >}} Takeaway messages:
 :::{.incremental}
