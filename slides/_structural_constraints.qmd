@@ -19,6 +19,8 @@
 
 -   Structural information can be a **useful addition** to any inversion to **reduce ambiguity**.
 
+-   Goal: give **"hints"** to the inversion as to **where we expect parameter jumps / contrasts**.
+
 -   Possible sources of information:
 
     - **wave methods (seismics, GPR,...)**
@@ -33,7 +35,7 @@
 
 -   **Alternative way to smoothness-constrained inversions** using a covariance matrix to quantify the correlation of model parameters in different cells
 
--   Based on **geological or structural analysis**, an estimation of *i) vertical and horizontal correlation lengths*, *ii) the dip direction* and *iii) the strike angle* (in 3D) is included into the inversion
+-   Based on **geological or structural analysis**, an estimation of *i) vertical and horizontal correlation lengths*, *ii) the dip angle* and *iii) the strike direction* (in 3D) is included into the inversion
 
 -   The resulting **covariance matrix** is given as:
 
