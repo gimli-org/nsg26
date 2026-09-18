@@ -63,6 +63,8 @@ Feel free to ask questions at any time during the workshop. We will also have a 
 
 {{< include _pygimli.qmd >}}
 
+{{< include _field_site.qmd >}}
+
 {{< include _managers.qmd >}}
 
 # Advanced inversion
