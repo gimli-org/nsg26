@@ -47,6 +47,16 @@ $${#eq-covar}
 
 -   Example notebook: `Applying geostatistical constraints`
 
+## Geostatistical regularization 
+
+-   **Alternative way to smoothness-constrained inversions** using a covariance matrix to quantify the correlation of model parameters in different cells
+
+-   Based on **geological or structural analysis**, an estimation of *i) vertical and horizontal correlation lengths*, *ii) the dip angle* and *iii) the strike direction* (in 3D) is included into the inversion
+
+-   The resulting **covariance for a single model cell** looks as follows:
+
+![](images/geostat_operator.png){fig-align="center"}
+
 
 ## Inversion with simple structural constraints
 
