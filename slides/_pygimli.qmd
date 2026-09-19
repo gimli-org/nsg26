@@ -79,7 +79,7 @@ The underlying equation level allows to directly access the finite element solve
 ::::
 
 
-## Basic inversion framework
+## Basic inversion framework {.smaller}
 :::: {.columns}
 ::: {.column}
 
