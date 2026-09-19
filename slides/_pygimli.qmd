@@ -74,7 +74,7 @@ The underlying equation level allows to directly access the finite element (`pyg
 ::: {.column .incremental width="55%"}
 - [Transform 2021](http://transform21.pygimli.org): creating **geometries & meshes**, **modeling** PDEs, **synthetic data**, **inversion** (also with **external forward operator**).
 - [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), **geostatistical** vs. smoothness regularization, treatment of subsurface **regions**, adding **prior data**.
-- [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice. 
+- [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice.
 - Today we **practise** & focus on **combining near-surface geophysical data** for joint interpretation and inversion.
 :::
 ::: {.column width="45%"}
@@ -85,7 +85,7 @@ The underlying equation level allows to directly access the finite element (`pyg
 ## {{< fa newspaper >}} What is new since?
 
 ::: {.noincremental}
-- work-in-progress [**user guide**](https://www.pygimli.org/user-guide/) 
+- work-in-progress [**user guide**](https://www.pygimli.org/user-guide/)
 - **Improved 3D visualization** powered by [pyvista](https://pyvista.org) (filters, slices, interactivity)
 - **3D gravity and (full-tensor) magnetics** operators and managers
 - **New matrices and matrix generators**, e.g. non-explicit (PDE-based) Jacobian matrix
@@ -106,7 +106,7 @@ https://github.com/gimli-org/gimli/releases
 - new **examples** (e.g. reciprocals) and improved old ones
 - better access to **Jacobian, resolution matrices** etc.
 - **syntactic sugar** (`data.show('i')`, `mesh.show('res')`, `data.estimateError()`)
-- new **mesh functions**:<br> e.g., `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()` 
+- new **mesh functions**:<br> e.g., `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()`
 - new **matrix types**, e.g. for BFGS-based inversion
 - different **inversion frameworks** (SD, NLCG, GN, L_BFGS, BFGS)
 - fully **complex-valued** (FD) ERT-IP inversion (also for TD)
@@ -144,7 +144,7 @@ https://github.com/gimli-org/gimli/releases
 - `ERTManager` for data inversion and model output
 - `ERTIPManager` for FD or TD Induced Polarization (IP)
 - `TimelapseERT` (and `CrossholeERT`) class for timelapse ERT
-- spectral IP analysis in `pyBERT` module (`FDIP` and `TDIP`)
+- spectral IP analysis in `FDIP` and `TDIP` modules
 :::
 ::: {.column width="30%"}
 ![](images/tree.png)
@@ -168,7 +168,7 @@ https://github.com/gimli-org/gimli/releases
 
 - based on `TimelapseERT` with some extra functions
 - different visualization methods
-- adapted mesh generation 
+- adapted mesh generation
 - attributes electrodes to boreholes
 - `extractSubset` to retrieve (3D) parts or (2D) planes
 
@@ -223,7 +223,7 @@ https://github.com/gimli-org/gimli/releases
 :::: {.columns}
 ::: {.column width="50%"}
 - please add some important aspects on cross-gradient JI
-- and maybe also a nice picture showing the effects comapred to individual inversions 
+- and maybe also a nice picture showing the effects comapred to individual inversions
 :::
 ::: {.column width="50%"}
 ![](images/traveltime.png)
@@ -234,7 +234,7 @@ https://github.com/gimli-org/gimli/releases
 :::: {.columns}
 ::: {.column width="50%"}
 - own class in `pygimli.frameworks`
-- allows structurally coupled multi-method inversions 
+- allows structurally coupled multi-method inversions
 - coupling strengths adjusted by `scci.a`, `scci.b`, `scci.c`
 - visualization of coupling strength per boundary via `drawCWeight`
 :::
