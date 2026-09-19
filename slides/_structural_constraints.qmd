@@ -28,6 +28,10 @@
 -   Those information can be **easily integrated** into the mesh used for inversion 
 :::
 
+## Implementation via smoothing matrix
+
+![@Wagner2021](images/constrained_inversion_implementation.svg)
+
 ## Constraints from borehole data
 
 :::: {.columns}

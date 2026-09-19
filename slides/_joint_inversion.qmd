@@ -16,7 +16,7 @@
 
 -   If two methods are sensitive to the same physical property (e.g. electrical resistivity $\rho$ by using ERT and a electromagnetic method) we can use the same model parameter space for both methods and perform a classical **joint inversion**.
 
--  In the following exapmle we will use vertical electrical sounding (VES) and EM data to jointly invert for the electrical resistivity distribution of the subsurface in a 1D model.
+-  In the following example we will use vertical electrical sounding (VES) and EM data to jointly invert for the electrical resistivity distribution of the subsurface in a 1D model.
 
 ![](images/joint_inversion.png){fig-align="center"}
 
@@ -38,6 +38,10 @@
 
 ![](images/plot_3_petro_joint_inv_all.png){fig-align="center"}
 
+
+## The idea of cross-gradients
+
+![@Wagner2021](images/cross_gradients.svg)
 
 ## Joint inversion of methods working in different parameter spaces
 ### Structurally coupled joint inversion

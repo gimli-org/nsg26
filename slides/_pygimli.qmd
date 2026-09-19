@@ -8,36 +8,34 @@
 process-based inversions** with **region-specific regularization**
 - **open-source, platform compatible**, documented & tested code
 - suitability for **teaching & reproducible research**
-- v1.0 published in *Computers and Geosciences* [@Ruecker2017] [(among *Most Downloaded* papers, > 430 citations, > 120 uses in peer-reviewed papers)]{.muted}
+- v1.0 published in *Computers and Geosciences* [@Ruecker2017] [(among *5 Most Downloaded* papers and > 700 citations)]{style="color:gray;"} and broadly used since
+- **Website and documentation:** <https://pygimli.org> 
 :::
 ::: {.column width="30%"}
 ::: {.r-stack}
 ![](images/seismics.png)
 ![](images/3d_darcy.png)
+![](images/global.png){height=180}
 :::
 :::
 :::
 
-## Basic inversion framework {.smaller}
-:::: {.columns}
-::: {.column}
+## Implemented geophysical methods {.smaller}
 
-The default inversion framework is based on the generalized Gauss-Newton method and is compatible with any given forward operator and thus applicable to various physical problems.
+All available in `pygimli.physics`:
 
-$$ \| \mathbf{W}_\text{d} (\mathbf{F}(\mathbf{m})-\mathbf{d}) \|^2_2 + \lambda \| \mathbf{W}_\text{m} (\mathbf{m}-\mathbf{m_0}) \|^2_2 \rightarrow\min $$
-
-::: {.callout-note}
-The inversion is physics-independent and very flexible in terms of adding prior information, regularization and integrating different geophysical methods.
-:::
-
-Website and documentation: <https://pygimli.org>
-:::
-
-::: {.column}
-![@Ruecker2017](images/inversion_framework.svg)
-:::
-
-::::
+| Method  | Forward | Inverse  |  Dimension  |
+| :---------------- | :------: |:--------:|:--------:|
+| EM    | **✓** | **✓** | *1D* |
+| ERT   | **✓** | **✓** | *2D, 3D, 4D* |
+| Gravimetry    | **✓** | **✓** | *2D, 3D* |
+| Magnetics    | **✓** | **✓** | *2D, 3D* |
+| Petrophysics     | **✓** | **✓** | *dimensionless* |
+| Seismics | **✓** | **-** | 2D |
+| SIP | **✓** | **✓** | *1D, 2D, 3D* |
+| sNMR | **✓** | **✓** | *1D* |
+| Traveltime | **✓** | **✓** | *2D, (3D)* |
+| VES | **✓** | **✓** | *1D* |
 
 ## Software design {.smaller}
 :::: {.columns}
@@ -48,15 +46,27 @@ pyGIMLi is organized in three different abstraction levels:
 ::: {.panel-tabset}
 ## Application level
 
-In the application level, ready-to-use method managers and frameworks are provided. Method managers (`pygimli.manager`) hold all relevant functionality related to a geophysical method. A method manager can be initialized with a data set and used to analyze and visualize this data set, create a corresponding mesh, and carry out an inversion. Various method managers are available in `pygimli.physics`. Frameworks (`pygimli.frameworks`) are generalized abstractions of standard and advanced inversions tasks such as time-lapse or joint inversion for example. Since frameworks communicate through a unified interface, they are method independent.
+In the application level, ready-to-use method managers and frameworks are provided. 
+
+```python
+from pygimli.physics import ert
+mgr = ert.ERTManager("mydata.dat")
+mgr.showData()
+mgr.invert(lam=50)
+mgr.showResult()
+```
 
 ## Modelling level
 
 In the modelling level, users can set up customized forward operators that map discretized parameter distributions to a data vector. Once defined, it is straightforward to set up a corresponding inversion workflow or combine the forward operator with existing ones.
 
+```python
+rho_a = ert.simulate(mesh, scheme,model)
+```
+
 ## Equation level
 
-The underlying equation level allows to directly access the finite element (`pygimli.solver.solveFiniteElements()`) and finite volume (`pygimli.solver.solveFiniteVolume()`) solvers to solve various partial differential equations on unstructured meshes, i.e. to approach various physical problems with possibly complex 2D and 3D geometries.
+The underlying equation level allows to directly access the finite element solvers to solve various partial differential equations on unstructured meshes, i.e. to approach various physical problems with possibly complex 2D and 3D geometries.
 
 :::
 
@@ -68,194 +78,122 @@ The underlying equation level allows to directly access the finite element (`pyg
 
 ::::
 
+
+## Basic inversion framework
+:::: {.columns}
+::: {.column}
+
+The default inversion framework is based on the generalized Gauss-Newton method and is compatible with any given forward operator and thus applicable to various physical problems.
+
+$$ \| \mathbf{W}_\text{d} (\mathbf{F}(\mathbf{m})-\mathbf{d}) \|^2_2 + \lambda \| \mathbf{W}_\text{m} (\mathbf{m}-\mathbf{m_0}) \|^2_2 \rightarrow\min $$
+
+::: {.callout-note}
+The inversion is physics-independent and very flexible in terms of adding prior information, regularization and integrating different geophysical methods.
+:::
+
+:::
+
+::: {.column}
+![@Ruecker2017](images/inversion_framework.svg)
+:::
+
+::::
+
+## {{< fa newspaper >}} Recent developments in py**GIMLi**
+
+::: {.incremental}
+- **Improved 3D visualization** powered by [pyvista](https://pyvista.org) (including filters, slices and interactive notebook compatibility)
+- **3D gravity and (full-tensor) magnetics** operators and managers
+- `LSQRinversion` framework enabling additional parameter relations [from @Wagner2019]
+- `MultiFrameModelling` framework for temporally/spectrally/spatially constrained inversion
+- `TimelapseERT` class with different strategies, e.g. **4D inversion**
+- **New examples** on ERT (2D/3D crosshole, 3D surface, timelapse), IP, 3D magnetics
+- **Improved website** and new user-guide
+- enabled `pip install pygimli` for easier installation (e.g. on Google Colab)
+- fully **complex-valued** (FD) ERT-IP inversion (also for TD)
+- Structurally-coupled cooperative (SCCI) inversion framework
+- fully **complex-valued** (FD) ERT-IP inversion (also for TD)
+:::
+
+
 ## {{< fa backward >}} Existing tutorials
 
 ::: {.columns}
-::: {.column .incremental width="55%"}
+::: {.column .incremental width="65%"}
 - [Transform 2021](http://transform21.pygimli.org): creating **geometries & meshes**, **modeling** PDEs, **synthetic data**, **inversion** (also with **external forward operator**).
 - [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), **geostatistical** vs. smoothness regularization, treatment of subsurface **regions**, adding **prior data**.
 - [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice.
-- Today we **practise** & focus on **combining near-surface geophysical data** for joint interpretation and inversion.
+- [GELMON 2025](http://gelmon25.pygimli.org): ERT time-lapse data processing and inversion + image appraisal
+- Today we focus on **combining near-surface geophysical data** for joint interpretation and inversion.
 :::
-::: {.column width="45%"}
+::: {.column width="35%"}
 ![](images/youtube.jpg){width=90%}
 :::
 :::
-
-## {{< fa newspaper >}} What is new since?
-
-::: {.noincremental}
-- work-in-progress [**user guide**](https://www.pygimli.org/user-guide/)
-- **Improved 3D visualization** powered by [pyvista](https://pyvista.org) (filters, slices, interactivity)
-- **3D gravity and (full-tensor) magnetics** operators and managers
-- **New matrices and matrix generators**, e.g. non-explicit (PDE-based) Jacobian matrix
-- `LSQRinversion` framework to include parameter relations [from @Wagner2019]
-- added **Structurally coupled cooperative inversion** (SCCI) as separate inversion class
-- `MultiFrameModelling` framework for temporally/spectrally/spatially constraints
-- `TimelapseERT` class with different strategies, e.g. **4D inversion**
-- **New examples** on ERT (2D/3D crosshole, 3D surface, timelapse), IP, 3D magnetics
-- Many more **convenience functions** to simplify the code
-- Many **new papers using pyGIMLi** (<https://pygimli.org/publist.html>)
-:::
-
-## {{< fa newspaper >}} New since v1.5.0 (SEG webinar)
-
-https://github.com/gimli-org/gimli/releases
-
-- enabled `pip install pygimli` for easier installation (e.g. on Google Colab)
-- new **examples** (e.g. reciprocals) and improved old ones
-- better access to **Jacobian, resolution matrices** etc.
-- **syntactic sugar** (`data.show('i')`, `mesh.show('res')`, `data.estimateError()`)
-- new **mesh functions**:<br> e.g., `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()`
-- new **matrix types**, e.g. for BFGS-based inversion
-- different **inversion frameworks** (SD, NLCG, GN, L_BFGS, BFGS)
-- fully **complex-valued** (FD) ERT-IP inversion (also for TD)
-- improvements in **gravity, magnetics and TDEM**
-- a lot of of bug fixes and improved docstrings
 
 ## {{< fa people-group >}} Join the pyGIMLi user community!
 
 ::: {.columns}
 ::: {.column width="50%"}
-![](images/laptops.JPG)
+![](images/laptops.JPG){width=80%}
 
 > "In open source, we feel strongly that to really **do something well**, you have to get a lot of people involved."
 >
 > *– Linus Torvalds*
 :::
 
-::: {.column width="40%" .noincremental}
+::: {.column width="50%" .noincremental}
 1. **Join the `#pyGIMLi` chat** on [Mattermost](https://softwareunderground.org/mattermost)!
 2. **Open a discussion** or **raise an issue** [on {{< fa brands github >}} GitHub](https://github.com/gimli-org/gimli).
 3. **Contribute to the website** via the "Improve this page" button in the right sidebar.
 4. **Add your** pyGIMLi-powered **publication** to [this database](https://github.com/gimli-org/gimli/blob/dev/doc/gimliuses.bib).
 5. **Send your example** to [mail@pygimli.org](mailto:mail@pygimli.org).
-6. **Contribute to the code** as described in [our contribution guidelines.](https://pygimli.org/contrib.html)
+6. **Contribute to the code** as described in [our contribution guidelines.](https://pygimli.org/community/contribute)
 :::
 :::
 
-## The code base -- `ERT` module
+## A typical ERT workflow
 
-:::: {.columns}
-::: {.column width="70%"}
-- import and export of various formats
-- utility functions and data visualization
-- array generation and synthetic model simulation
-- `ERTManager` for data inversion and model output
-- `ERTIPManager` for FD or TD Induced Polarization (IP)
-- `TimelapseERT` (and `CrossholeERT`) class for timelapse ERT
-- spectral IP analysis in `FDIP` and `TDIP` modules
-:::
-::: {.column width="30%"}
-![](images/tree.png)
-:::
-::::
+::: {.columns}
+::: {.column width="40%"}
+Everything is exposed through
 
-
-## {{< fa code >}} The `TimelapseERT` class
-
-- designed for surface ERT data (crosshole: `CrossholeERT`)
-- different import formats and export of filtered data
-- extract data time series with `.showTimeline()`
-- extensive filter function (`t`, `tmin`, `tmax`, `kmax`)
-- masking of data with app. resistivity & error bounds (`.mask()`)
-- automatic masking based on harmonic filtering
-- different types of data visualization and PDF generation
-- temporal fitting of reciprocal error models
-- invert single timesteps, sequentially or full ("4D" inversion)
-
-## {{< fa code >}} The `CrossholeERT` class
-
-- based on `TimelapseERT` with some extra functions
-- different visualization methods
-- adapted mesh generation
-- attributes electrodes to boreholes
-- `extractSubset` to retrieve (3D) parts or (2D) planes
-
-{{< fa code >}} Make whole processing chain transparent and reproducible
-
-
-## The code base -- `traveltime` module
-
-:::: {.columns}
-::: {.column width="50%"}
-- import and export of various formats
-- utility functions and data visualization
-- array generation and synthetic model simulation
-- `TravelTimeManager` for data inversion and model output
-- several convenience functions to evaluate and visualize results
-:::
-::: {.column width="50%"}
-![](images/traveltime.png)
-:::
-::::
-
-## {{< fa code >}} Crosshole traveltime tomography
-
-:::: {.columns}
-::: {.column width="50%"}
-- based on functions implemented in `traveltime` manager
-- `createCrossholeData()` allows to generate synthetic crosshole data
-- inversion and evaluation based on functions given in 'traveltime' manager
-:::
-::: {.column width="50%"}
-![](images/crosshole_tt.png)
-:::
-::::
-
-
-## The code base -- joint inversion frameworks
-
-:::: {.columns}
-::: {.column width="50%"}
-- import and export of various formats
-- utility functions and data visualization
-- array generation and synthetic model simulation
-- `TravelTimeManager` for data inversion and model output
-- several convenience functions to evaluate and visualize results
-:::
-::: {.column width="50%"}
-![](images/traveltime.png)
-:::
-::::
-
-## {{< fa code >}} Cross gradient joint inversion
-:::: {.columns}
-::: {.column width="50%"}
-- please add some important aspects on cross-gradient JI
-- and maybe also a nice picture showing the effects comapred to individual inversions
-:::
-::: {.column width="50%"}
-![](images/traveltime.png)
-:::
-::::
-
-## {{< fa code >}} Structurally coupled cooperative inversion (SCCI)
-:::: {.columns}
-::: {.column width="50%"}
-- own class in `pygimli.frameworks`
-- allows structurally coupled multi-method inversions
-- coupling strengths adjusted by `scci.a`, `scci.b`, `scci.c`
-- visualization of coupling strength per boundary via `drawCWeight`
-:::
-::: {.column width="50%"}
-![](images/traveltime.png)
-:::
-::::
-
-## {{< fa rocket >}} How to get started
-
-1. Open [Miniforge Prompt](https://docs.anaconda.com/free/anaconda/install/) ({{< fa brands windows >}}) or a Terminal ({{< fa brands apple >}}/{{< fa brands linux >}}).
-2. Follow the [installation guideline](https://www.pygimli.org/user-guide/getting-started/installation/#installation) on the pyGIMLi website.
-
-```bash
-conda create -n pg
-conda activate pg
-
-conda install -c gimli pygimli
+```python
+import pygimli.physics.ert as ert
 ```
 
-::: {.callout-tip}
-## Follow without a local installation
-You can also visit <https://colab.research.google.com>, open an empty notebook and type `!pip install pygimli tetgen`.
+and the high-level `ert.ERTManager` class — but every step can also be customized at the modelling or equation level.
 :::
+::: {.column width="60%" .incremental}
+1. **Survey design** — electrode geometry & measurement scheme
+2. **Forward modelling** — predict data from a resistivity model
+3. **Loading and inspecting data** — apparent-resistivity pseudosections
+4. **Quality control** — filter unreliable measurements
+5. **Error model** — weights that enter the inversion
+6. **Mesh generation** — discretize the parameter domain
+7. **Inversion** — recover the subsurface resistivity model
+8. **Appraisal** — coverage, data fit, sensitivity
+:::
+:::
+
+## Unified data format
+pyGIMLi can read various system formats, but internally the unified data format is the basis of the `DataContainer` class, which is used for all data management and processing steps.
+
+``` md
+6 # Number of electrodes
+# x z 
+0     0
+1     0
+2     0 # loose ground
+3     0
+4     0
+5     0
+6 # Number of data
+# a b m n u i/mA err/%
+  1   2   3   4  -0.5305165 102.2 2.4
+  2   3   4   5  -0.5305165 99.9  1.4
+  3   4   5   6  -0.5305165 95.6  2.6
+  1   2   4   5  -0.1326291 100.1 7.6
+  2   3   5   6  -0.1326291 80.2 8.6 # possibly an outlier
+  1   2   5   6  -0.05305165 77.3 7.5
+```
