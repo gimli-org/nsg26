@@ -20,7 +20,7 @@ process-based inversions** with **region-specific regularization**
 :::
 :::
 
-## Implemented geophysical methods {.smaller}
+## Implemented geophysical methods
 
 All available in `pygimli.physics`:
 
@@ -112,7 +112,6 @@ The inversion is physics-independent and very flexible in terms of adding prior 
 - enabled `pip install pygimli` for easier installation (e.g. on Google Colab)
 - fully **complex-valued** (FD) ERT-IP inversion (also for TD)
 - Structurally-coupled cooperative (SCCI) inversion framework
-- fully **complex-valued** (FD) ERT-IP inversion (also for TD)
 :::
 
 
