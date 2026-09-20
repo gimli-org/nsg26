@@ -12,8 +12,6 @@ If you have pyGIMLi and Jupyter installed, please open an empty notebook.
 
 :::
 
-:::
-
 
 ## {{< fa flag-checkered >}} Takeaway messages:
 :::{.incremental}
