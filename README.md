@@ -6,6 +6,12 @@ pyGIMLi Workshop at NSG26
 **Date**: Sunday, September 20, 2026 \
 **Instructors**: Nino Menzel, Alexander Jaron, Florian Wagner (*RWTH Aachen University*)
 
+<p align="center">
+  <a href="https://gimli-org.github.io/nsg26/"><img alt="View slides online" src="https://img.shields.io/badge/Slides-View%20online-2E8B57?style=for-the-badge&logo=quarto&logoColor=white"></a>
+  &nbsp;
+  <a href="https://gimli-org.github.io/nsg26/nsg26_pygimli_workshop_slides.pdf"><img alt="Download slides as PDF" src="https://img.shields.io/badge/Slides-Download%20PDF-B22222?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTEgMWgydjEyLjJsNC42LTQuNiAxLjQgMS40TDEyIDE3bC03LTcgMS40LTEuNEwxMSAxMy4yVjF6Ii8%2BPHBhdGggZD0iTTMgMTloMTh2NEgzeiIvPjwvc3ZnPg%3D%3D"></a>
+</p>
+
 ## Combining near-surface geophysical data with the open-source library pyGIMLi 
 
 Near-surface geophysical methods are key tools in environmental and engineering geosciences, yet interpretations based on a single modality often remain ambiguous (e.g., Wagner & Uhlemann, 2021). Combining multiple methods with complementary sensitivities can significantly reduce this ambiguity, but is frequently hampered by method-specific, closed-source software solutions. In this hands-on workshop, we introduce the open-source library pyGIMLi (Rücker et al., 2017) as a flexible framework for multi-method modeling and inversion. Participants will gain an overview of pyGIMLi’s forward modeling operators and learn how these can be coupled within unified inversion schemes. Using examples of increasing complexity, we will demonstrate how to integrate prior information from borehole data, implement structural constraints, and set up fully coupled joint inversions employing both petrophysical and structural coupling strategies. The workshop targets researchers and practitioners interested in practical workflows for combining near-surface geophysical data within an open and extensible Python environment.
